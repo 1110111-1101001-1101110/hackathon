@@ -1,0 +1,42 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}
+    {{ event.title }} - Детали мероприятия
+{% endblock %}
+
+{% block content %}
+    <div class="event-detail">
+        <h1>{{ event.title }}</h1>
+        <p><strong>Категория:</strong> {{ event.category }}</p>
+        <p><strong>Дата и время:</strong> {{ event.date_time }}</p>
+        <p><strong>Локация:</strong> {{ event.get_location_display }}</p>
+        <p><strong>Описание:</strong> {{ event.description }}</p>
+
+
+        {% if user_rating %}
+            <div class="user-rating">
+                <h2>Ваш отзыв:</h2>
+                <p><strong>Оценка:</strong> {{ user_rating.score }}</p>
+                <p><strong>Комментарий:</strong> {{ user_rating.comment }}</p>
+            </div>
+        {% else %}
+            <form method="POST" class="rating-form">
+                {% csrf_token %}
+                <h2>Оставьте свой отзыв</h2>
+                <label for="score">Оценка (1-5):</label>
+                <select id="score" name="score">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                
+                <label for="comment">Комментарий:</label>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                
+                <button type="submit" class="btn">Отправить отзыв</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

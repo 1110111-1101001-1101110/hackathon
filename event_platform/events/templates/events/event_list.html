@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список мероприятий</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJtusQ8n4JkKj6Echftf3S2/kt6cJgfDd5IZpTZ7IQJdSRij0CpkfFZ5j3D8" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f1;  /* Розовый фон */
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: #e60073;  /* Ярко-розовый */
+            margin-bottom: 40px;
+        }
+
+        .event-card {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #ff66b2;  /* Розовая граница */
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .event-card .card-body {
+            padding: 20px;
+        }
+
+        .event-card .card-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e60073;  /* Ярко-розовый */
+        }
+
+        .event-card .card-text {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .event-card .btn-primary {
+            background-color: #ff66b2; /* Розовый фон кнопок */
+            border-color: #ff66b2;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .event-card .btn-primary:hover {
+            background-color: #e60073;
+            border-color: #e60073;
+        }
+
+        /* Кнопки для выхода и перехода в профиль */
+        .action-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .action-btns a {
+            display: inline-block;
+            background-color: #ff66b2;
+            border-color: #ff66b2;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .action-btns a:hover {
+            background-color: #e60073;
+            border-color: #e60073;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Список мероприятий</h1>
+
+    <div class="row">
+        {% for event in events %}
+            <div class="col-md-4">
+                <div class="card event-card">
+                    <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text"><strong>Категория:</strong> {{ event.category.name }}</p>
+                        <p class="card-text"><strong>Время:</strong> {{ event.date_time|date:"d.m.Y H:i" }}</p>
+                        <a href="{% url 'event_detail' event_id=event.id %}" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">Нет доступных мероприятий.</p>
+        {% endfor %}
+    </div>
+
+    <div class="action-btns">
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">Профиль</a>
+            <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>

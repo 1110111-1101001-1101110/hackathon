@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}События{% endblock %}</title>
+
+    <!-- Загружаем тег static -->
+    {% load static %}
+
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="/" class="nav-link">Главная</a></li>
+                <li><a href="/events/" class="nav-link">Все мероприятия</a></li>
+                <li><a href="/events/create/" class="nav-link">Создать мероприятие</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Контент страницы будет вставлен сюда -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Мои события</p>
+    </footer>
+</body>
+</html>
