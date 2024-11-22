@@ -1,4 +1,4 @@
-# events/forms.py
+
 from django import forms
 from django.contrib.auth.models import User
 from django import forms
@@ -11,10 +11,10 @@ class UserRegistrationForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = ['username', 'email']  # Добавляем поле email
+        fields = ['username', 'email']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),  # Добавляем стиль для email
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
         }
 
     def clean(self):

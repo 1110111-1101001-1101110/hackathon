@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}События{% endblock %}</title>
 
-    <!-- Загружаем тег static -->
+
     {% load static %}
 
-    <!-- Подключаем CSS -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -24,7 +23,7 @@
 
     <main>
         {% block content %}
-        <!-- Контент страницы будет вставлен сюда -->
+
         {% endblock %}
     </main>
 

@@ -10,14 +10,14 @@ from django.contrib import messages
 from django.contrib.auth import logout
 
 
-# Главная страница - отображение списка мероприятий
+
 def event_list(request):
-    events = Event.objects.all()  # Получаем все мероприятия
+    events = Event.objects.all() 
     return render(request, 'events/event_list.html', {'events': events})
 
-# Страница с деталями мероприятия
+
 def event_detail(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)  # Получаем событие по ID
+    event = get_object_or_404(Event, pk=event_id)  
     user_rating = None
     if request.user.is_authenticated:
         user_rating = Rating.objects.filter(user=request.user, event=event).first()
@@ -42,35 +42,35 @@ def event_detail(request, event_id):
         'form': form
     })
 
-# Страница профиля пользователя
+
 @login_required
 def profile(request):
-    # Получаем все рейтинги пользователя
+
     ratings = Rating.objects.filter(user=request.user)
     
-    # Получаем рекомендованные мероприятия
+
     recommended = recommended_events(request.user)
 
-    # Рендерим страницу профиля
+
     return render(request, 'events/profile.html', {
         'ratings': ratings,
         'recommended': recommended
     })
 
-# Вход (authentication)
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('event_list')  # Перенаправление на главную страницу после входа
+            return redirect('event_list')
     else:
         form = AuthenticationForm()
 
     return render(request, 'events/login.html', {'form': form})
 
-# Регистрация (registration)
+
 def register_view(request):
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)
@@ -78,13 +78,13 @@ def register_view(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.save()
-            login(request, user)  # Выполним авторизацию сразу после регистрации
-            return redirect('profile')  # Перенаправление на профиль
+            login(request, user)
+            return redirect('profile')
     else:
         form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
 
-# Страница выхода
+
 def logout_view(request):
     logout(request)
-    return redirect('event_list')  # После выхода перенаправляем на главную страницу
+    return redirect('event_list')

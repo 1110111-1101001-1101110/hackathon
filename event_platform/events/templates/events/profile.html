@@ -212,20 +212,20 @@
 <div class="container">
     <h1>Профиль пользователя</h1>
 
-    <!-- Информация о пользователе -->
+
     <div class="profile-info">
         <img src="https://via.placeholder.com/120" alt="Profile Picture">
         <h3>{{ user.username }}</h3>
         <p>Email: {{ user.email }}</p>
     </div>
 
-    <!-- Кнопки для переключения между разделами -->
+
     <div class="btn-group">
         <button class="btn" onclick="showSection('events')">Мои мероприятия</button>
         <button class="btn" onclick="showSection('recommended')">Рекомендованные мероприятия</button>
     </div>
 
-    <!-- Список мероприятий пользователя -->
+
     <div id="events" class="events-list active">
         <h2>Мои мероприятия</h2>
         {% for rating in ratings %}
@@ -241,7 +241,7 @@
         {% endfor %}
     </div>
 
-    <!-- Список рекомендованных мероприятий -->
+
     <div id="recommended" class="recommended-events">
         <h2>Рекомендованные мероприятия</h2>
         {% if recommended %}
@@ -260,21 +260,21 @@
     
 
 
-    <!-- Кнопка для возвращения на главную страницу -->
+
     <a href="{% url 'event_list' %}" class="btn logout-btn" style="margin-top: 15px;">Вернуться на главную</a>
 </div>
 
 <script>
-    // Функция для отображения нужного раздела
+
     function showSection(section) {
         var eventsSection = document.getElementById('events');
         var recommendedSection = document.getElementById('recommended');
         
-        // Скрываем оба раздела
+
         eventsSection.classList.remove('active');
         recommendedSection.classList.remove('active');
         
-        // Показываем нужный раздел
+
         if (section === 'events') {
             eventsSection.classList.add('active');
         } else if (section === 'recommended') {

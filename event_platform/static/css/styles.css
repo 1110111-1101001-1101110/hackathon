@@ -31,11 +31,10 @@ nav {
 }
 
 .nav-link:hover {
-    background-color: #ff3385; /* Более темный розовый при наведении */
+    background-color: #ff3385; 
     border-radius: 5px;
 }
 
-/* Стили для страницы списка мероприятий */
 .event-list {
     padding: 20px;
     background-color: #ffffff;
@@ -47,7 +46,7 @@ nav {
 .event-list h1 {
     font-size: 2.5rem;
     text-align: center;
-    color: #ff66b2; /* Розовый цвет заголовка */
+    color: #ff66b2;
     margin-bottom: 20px;
 }
 
@@ -74,7 +73,7 @@ nav {
 
 .event-list .event-item .event-button {
     display: inline-block;
-    background-color: #ff66b2; /* Розовая кнопка */
+    background-color: #ff66b2; 
     color: white;
     padding: 8px 15px;
     border-radius: 5px;
@@ -84,29 +83,29 @@ nav {
 }
 
 .event-list .event-item .event-button:hover {
-    background-color: #ff3385; /* Темный розовый при наведении */
+    background-color: #ff3385; 
 }
 
-/* Стили для страницы мероприятия */
+
 .event-detail {
     padding: 20px;
     max-width: 900px;
     margin: 40px auto;
-    background-color: white; /* Белый фон для карточки мероприятия */
+    background-color: white; 
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Заголовок мероприятия */
+
 .event-detail h1 {
     font-size: 2.5em;
     font-weight: bold;
-    color: #ff66b2; /* Розовый цвет заголовка */
+    color: #ff66b2;
     margin-bottom: 15px;
     text-align: center;
 }
 
-/* Строка с информацией о дате и локации */
+
 .event-detail .info {
     font-size: 1.1em;
     margin-bottom: 20px;
@@ -119,7 +118,7 @@ nav {
     margin: 5px 0;
 }
 
-/* Стили для описания мероприятия */
+
 .event-detail .description {
     font-size: 1.2em;
     color: #333;
@@ -127,7 +126,7 @@ nav {
     line-height: 1.6;
 }
 
-/* Стили для рейтинга и комментариев */
+
 .event-detail .rating-section {
     background-color: #f7f7f7;
     padding: 20px;
@@ -143,7 +142,7 @@ nav {
 }
 
 .event-detail .rating-section button {
-    background-color: #ff66b2; /* Розовая кнопка */
+    background-color: #ff66b2; 
     color: white;
     padding: 12px;
     font-size: 1.1em;
@@ -157,20 +156,20 @@ nav {
     background-color: #ff3385;
 }
 
-/* Стиль для блока с кнопками */
+
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Отступы между кнопками */
+    gap: 15px; 
     margin-top: 20px;
 }
 
-/* Общие стили для кнопок */
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
     margin: 10px 5px;
-    background-color: #ff66b2; /* Розовый фон для кнопок */
+    background-color: #ff66b2;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -179,13 +178,13 @@ nav {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Эффект при наведении */
+
 .btn:hover {
-    background-color: #ff3385; /* Темный розовый при наведении */
-    transform: scale(1.1); /* Увеличение кнопки */
+    background-color: #ff3385; 
+    transform: scale(1.1); 
 }
 
-/* Стили для страницы с деталями мероприятия */
+
 .event-detail {
     max-width: 900px;
     margin: 0 auto;
@@ -198,7 +197,7 @@ nav {
 .event-detail h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #ff66b2; /* Розовый заголовок */
+    color: #ff66b2;
 }
 
 .event-detail p {
@@ -208,7 +207,7 @@ nav {
     color: #555;
 }
 
-/* Стили для пользовательских отзывов */
+
 .user-rating {
     margin-top: 30px;
     padding: 20px;
@@ -221,7 +220,7 @@ form label {
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
-    color: #ff66b2; /* Розовые метки */
+    color: #ff66b2; 
 }
 
 form textarea {
@@ -244,7 +243,7 @@ form select {
 }
 
 form button {
-    background-color: #ff66b2; /* Розовая кнопка */
+    background-color: #ff66b2;
     color: white;
     padding: 10px 20px;
     font-size: 1.1rem;
@@ -257,7 +256,7 @@ form button:hover {
     background-color: #ff3385;
 }
 
-/* Стиль для кнопки "Назад" */
+
 .back-button {
     display: inline-block;
     background-color: #ff66b2;
